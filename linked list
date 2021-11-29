@@ -1,0 +1,81 @@
+//########CREATED BY ABHISHEK RANJAN, PUSHPAM KUMAR JHA, AAYUSH KUMAR, KETAN KUMAR ########
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+struct node{
+     struct node *next;
+     int data;
+};
+
+struct node* frnt = NULL;
+struct node* bck  = NULL;
+
+struct node* createnode(){
+     struct node* n = (struct node *)malloc(sizeof(struct node));
+     return n;
+}
+
+void insertnode(){
+     struct node* t = createnode();
+     
+     if(frnt==NULL){
+        frnt = t;
+         bck = t;
+     }else
+        bck->next = t;
+     
+      t->next = frnt;
+      //printf("Enter the value of node ");
+      scanf("%d",&t->data);
+     
+      bck = t;
+}
+
+
+// void traverse(){
+//      struct node* n=frnt;
+//      if(n==NULL)
+//      printf("Empty");
+//      else{
+//           while(n->next!=frnt){
+               
+//               printf("%d ",n->data);
+//               n = n->next;
+               
+//           }printf("%d\n",n->data);
+//      }
+// }
+
+
+int main(void) {
+     
+     int size,k,k1,size1;
+     scanf("%d%d",&size,&k);size1 = size;
+     
+     while(size1--)
+     insertnode();
+     
+   
+     struct node* z = frnt;
+      struct node *r;
+      
+     while(size--){
+          
+          k1 = k;
+          while(--k1){
+             z = z->next;
+          }r = z->next;
+          z->next = z->next->next;
+          z = z->next;
+          if(size>0)
+          free(r);
+    }printf(" %d ",z->data);
+     
+     
+ 
+	return 0;
+}
