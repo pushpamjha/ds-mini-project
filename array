@@ -1,0 +1,25 @@
+//########CREATED BY ABHISHEK RANJAN, PUSHPAM KUMAR JHA, AAYUSH KUMAR, KETAN KUMAR ########
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n,k,x=0,y,z;
+	cin>>n>>k;
+	int a[n];
+	for(int i=0;i<n;i++)
+	cin>>a[i];
+	
+	y=n;
+
+	for(int i=0;i<y-1;i++){
+		z=(k+x)%n;
+		
+            for(int j=z;j<n-1;j++)
+              a[j]=a[j+1];
+              
+		     n--;   x=z;
+	}
+	cout<<a[0];	
+}
